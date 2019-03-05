@@ -13,6 +13,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <!-- hamburger -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <!-- Our own sheets -->
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
@@ -22,17 +25,31 @@
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
     <nav class="navbar navbar-expand-lg">
         <div class=" navbar-collapse">
-            <!-- Website name -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="">Assimilate</a> <!-- Placeholder name thingy -->
-            </div>
+
             
+            <div class="topnav" id="myTopnav">
+                <a href="#home" class="active"><b>ASSIMILATE</b></a>
+                <a href="#howtoplay">How to Play</a>
+                <a href="#leaderboard">Leaderboard</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a>
+            </div>
+
             <!-- Navbar items list -->
-            <ul class="nav navbar-nav">    
+            <!-- <ul class="nav_navbar-nav" id = "navbarid">     -->
                 <!-- Other links to pages start here-->
                 <li class="nav-item"><a class="nav-link" href="#howtoplay" role="button" onclick="openInstructions()">How to Play</a></li>
                 <li class="nav-item"><a class="nav-link" href="#leaderboard" role="button" onclick="openLeaderboard()">Leaderboard</a></li>
             </ul>
+                <!-- <li class="nav-item"><a class="nav-link" href="#howtoplay">How to Play</a></li> -->
+                <!-- <li class="nav-item"><a class="nav-link" href="#leaderboard">Leaderboard</a></li> -->
+                            <!-- hamburger -->
+                <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()"> -->
+                    <!-- <i class="fa fa-bars"></i> -->
+                <!-- </a> -->
+            <!-- </ul> -->
+
         </div>
     </nav>
 
@@ -76,6 +93,11 @@
         <div id="leaderboard" style="display:none;">
             <h2 style="text-align: center;">Leaderboard</h2>
         </div>
+    <div class="bottombar" id="myBottom">
+        
+        <a href="#contact">About</a>
+        <a href="#about">Contact Us</a>
+            <!-- <a href="javascript:void(0);" class="icon" onclick="bottomFunction()">&#9776;</a> -->
     </div>
 </body>
 </html>
