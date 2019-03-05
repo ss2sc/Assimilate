@@ -1,4 +1,4 @@
-/* Custom Bootstrap */
+/* Customize Bootstrap */
 .navbar {
     background-color: #000e02;
 }
@@ -15,8 +15,22 @@
     color: #000000;
 }
 
-/* Default HTML tags */
+/* Built-in HTML tags */
 img {
     max-width: 100%;
     height: auto;
 }
+
+/* Class tags */
+.center-screen {
+    position: fixed;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius:25px;
+    top: 25%;
+    left: 37.5%; 
+    display: block;
+    padding: 2%;
+  }
+
+/* ID tags */

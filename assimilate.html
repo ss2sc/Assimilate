@@ -1,3 +1,6 @@
+<!-- Assimilate Game Website -->
+<!-- Single Page Application -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +30,8 @@
             <!-- Navbar items list -->
             <ul class="nav navbar-nav">    
                 <!-- Other links to pages start here-->
-                <li class="nav-item"><a class="nav-link" href="#howtoplay">How to Play</a></li>
-                <li class="nav-item"><a class="nav-link" href="#leaderboard">Leaderboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#howtoplay" role="button" onclick="openInstructions()">How to Play</a></li>
+                <li class="nav-item"><a class="nav-link" href="#leaderboard" role="button" onclick="openLeaderboard()">Leaderboard</a></li>
             </ul>
         </div>
     </nav>
@@ -56,8 +59,23 @@
     </div>
 
     <!-- Play page jumbrotron -->
-    <div id = "play" class="jumbotron" style="display:none;">
+    <div id="play" class="jumbotron" style="display:none;">
         <h1>TEST</h1>
+    </div>
+
+    <div id="centerscreen" class="container center-screen" style="display:none; height: 50%; width: 25%;">
+        <!-- How to play View -->
+        <div id="howtoplay" style="display:none;">
+            <h2 style="text-align: center;">How to play</h2>
+            <br>
+            <p>Click on a square in the grid. This will flip the colors of all adjacent squares.</p>
+            <p>The goal of the game is to make all the squares in the grid the same color!</p>
+        </div>
+
+        <!-- Leaderboard View -->
+        <div id="leaderboard" style="display:none;">
+            <h2 style="text-align: center;">Leaderboard</h2>
+        </div>
     </div>
 </body>
 </html>
