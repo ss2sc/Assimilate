@@ -31,11 +31,18 @@ img {
     left: 50%;
     margin-top: -200px;
     margin-left: -150px;
-    display: block;
     padding: 2%;
   }
 
 /* ID tags */
+#closeButton {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -215px;
+    margin-left: 115px;
+}
+
 .topnav{
     overflow: hidden;
 }

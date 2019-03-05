@@ -7,9 +7,11 @@ function openInstructions() {
     if( document.getElementById("howtoplay").style.display == "block" ) {
         document.getElementById("centerscreen").style.display = "none";
         document.getElementById("howtoplay").style.display = "none";
+        document.getElementById("closeButton").style.display = "none";
     }
     else {
         document.getElementById("leaderboard").style.display = "none";
+        document.getElementById("closeButton").style.display = "block";
         document.getElementById("centerscreen").style.display = "block";
         document.getElementById("howtoplay").style.display = "block";
     }
@@ -19,12 +21,21 @@ function openLeaderboard() {
     if( document.getElementById("leaderboard").style.display == "block" ) {
         document.getElementById("centerscreen").style.display = "none";
         document.getElementById("leaderboard").style.display = "none";
+        document.getElementById("closeButton").style.display = "none";
     }
     else {
         document.getElementById("howtoplay").style.display = "none";
+        document.getElementById("closeButton").style.display = "block";
         document.getElementById("centerscreen").style.display = "block";
         document.getElementById("leaderboard").style.display = "block";
     }
+}
+
+function closeCenter() {
+    document.getElementById("centerscreen").style.display = "none";
+    document.getElementById("howtoplay").style.display = "none";
+    document.getElementById("leaderboard").style.display = "none";
+    document.getElementById("closeButton").style.display = "none";
 }
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
