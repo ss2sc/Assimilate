@@ -1,3 +1,4 @@
+/* Custom Bootstrap */
 .navbar {
     background-color: #000e02;
 }
@@ -11,5 +12,11 @@
 }
 
 .jumbotron {
-    text-align: center;
+    color: #000000;
+}
+
+/* Default HTML tags */
+img {
+    max-width: 100%;
+    height: auto;
 }
