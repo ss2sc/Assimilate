@@ -11,4 +11,12 @@ function myFunction() {
     } else {
       x.className = "topnav";
     }
-  }
+}
+
+// function bottomFunction() {
+// var y = document.getElementById("myBottom");
+// if (y.className === "bottombar") {
+//     y.className += " bottomresponsive";
+// } else {
+//     y.className = "bottombar";
+// }
