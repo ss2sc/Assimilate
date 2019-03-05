@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Assimilate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+
+    <!-- Our own sheets -->
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
-    <!-- <script src="main.js"></script> -->
+    <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 <body>
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
@@ -23,28 +27,37 @@
             <!-- Navbar items list -->
             <ul class="nav navbar-nav">    
                 <!-- Other links to pages start here-->
-                <li class="nav-item"><a class="nav-link" href="#">How to Play</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Leaderboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#howtoplay">How to Play</a></li>
+                <li class="nav-item"><a class="nav-link" href="#leaderboard">Leaderboard</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="jumbotron">
+    <!-- Home page jumbrotron -->
+    <div id="home" class="jumbotron" style="display:block;">
         <div class="container">
             <div class="row">
+                <!-- Left side of jumbrotron -->
                 <div class="col-md-6 my-auto">
                     <img src="images/placeholder.png">
                 </div>
+
+                <!-- Right side of jumbrotron -->
                 <div class="col-md-6 my-auto">
                     <h1 style="text-align: center;">Assimilate</h1>
                     <p style="text-align: center;">Make all of the squares one color!</p>
 
                     <p style="text-align: center;"> 
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Play</a>
+                        <a class="btn btn-primary btn-lg" href="#play" role="button" onclick="openGame()">Play</a>
                     </p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Play page jumbrotron -->
+    <div id = "play" class="jumbotron" style="display:none;">
+        <h1>TEST</h1>
     </div>
 </body>
 </html>
