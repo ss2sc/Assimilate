@@ -25,12 +25,10 @@
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
     <nav class="navbar navbar-expand-lg">
         <div class=" navbar-collapse">
-
-            
             <div class="topnav" id="myTopnav">
-                <a href="#home" class="active"><b>ASSIMILATE</b></a>
-                <a href="#howtoplay">How to Play</a>
-                <a href="#leaderboard">Leaderboard</a>
+                <a href="" class="active"><b>ASSIMILATE</b></a>
+                <a href="#howtoplay" role="button" onclick="openInstructions()">How to Play</a>
+                <a href="#leaderboard" role="button" onclick="openLeaderboard()">Leaderboard</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                   <i class="fa fa-bars"></i>
                 </a>
@@ -39,9 +37,6 @@
             <!-- Navbar items list -->
             <!-- <ul class="nav_navbar-nav" id = "navbarid">     -->
                 <!-- Other links to pages start here-->
-                <li class="nav-item"><a class="nav-link" href="#howtoplay" role="button" onclick="openInstructions()">How to Play</a></li>
-                <li class="nav-item"><a class="nav-link" href="#leaderboard" role="button" onclick="openLeaderboard()">Leaderboard</a></li>
-            </ul>
                 <!-- <li class="nav-item"><a class="nav-link" href="#howtoplay">How to Play</a></li> -->
                 <!-- <li class="nav-item"><a class="nav-link" href="#leaderboard">Leaderboard</a></li> -->
                             <!-- hamburger -->
@@ -80,7 +75,7 @@
         <h1>TEST</h1>
     </div>
 
-    <div id="centerscreen" class="container center-screen" style="display:none; height: 50%; width: 25%;">
+    <div id="centerscreen" class="container center-screen" style="display:none; height: 400px; width: 300px;">
         <!-- How to play View -->
         <div id="howtoplay" style="display:none;">
             <h2 style="text-align: center;">How to play</h2>
@@ -93,6 +88,7 @@
         <div id="leaderboard" style="display:none;">
             <h2 style="text-align: center;">Leaderboard</h2>
         </div>
+    </div>
     <div class="bottombar" id="myBottom">
         
         <a href="#contact">About</a>

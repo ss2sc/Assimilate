@@ -4,18 +4,27 @@ function openGame() {
 }
 
 function openInstructions() {
-    document.getElementById("leaderboard").style.display = "none";
-    document.getElementById("centerscreen").style.display = "block";
-    document.getElementById("howtoplay").style.display = "block";
+    if( document.getElementById("howtoplay").style.display == "block" ) {
+        document.getElementById("centerscreen").style.display = "none";
+        document.getElementById("howtoplay").style.display = "none";
+    }
+    else {
+        document.getElementById("leaderboard").style.display = "none";
+        document.getElementById("centerscreen").style.display = "block";
+        document.getElementById("howtoplay").style.display = "block";
+    }
 }
 
 function openLeaderboard() {
-    document.getElementById("howtoplay").style.display = "none";
-    document.getElementById("centerscreen").style.display = "block";
-    document.getElementById("leaderboard").style.display = "block";
-}
-    document.getElementById("home").display = "none";
-    //document.getElementById("play").display = "block";
+    if( document.getElementById("leaderboard").style.display == "block" ) {
+        document.getElementById("centerscreen").style.display = "none";
+        document.getElementById("leaderboard").style.display = "none";
+    }
+    else {
+        document.getElementById("howtoplay").style.display = "none";
+        document.getElementById("centerscreen").style.display = "block";
+        document.getElementById("leaderboard").style.display = "block";
+    }
 }
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
