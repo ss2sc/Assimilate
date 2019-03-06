@@ -48,6 +48,34 @@ function myFunction() {
     }
 }
 
+/* Gameplay */
+function changeSquares(numBox) {
+    if ((numBox + 4) % 5 != 4) {  // Check left movement
+        flip(numBox - 1);
+    }
+    if ((numBox + 6) % 5 != 0) {  // Check right movement
+        flip(numBox + 1);
+    }
+    if (numBox - 5 >= 0) {  // Check up movement
+        flip(numBox - 5);
+    }
+    if (numBox + 5 <= 24) {  // Check down movement
+        flip(numBox + 5);
+    }
+}
+
+function flip(numBox) {
+    var color1 = "white";
+    var color2 = "black";
+    var spots = document.getElementsByClassName("box");
+    if(spots[numBox].style.backgroundColor == color2) {
+        spots[numBox].style.backgroundColor = color1;
+    }
+    else {
+        spots[numBox].style.backgroundColor = color2;
+    }
+}
+
 // function bottomFunction() {
 // var y = document.getElementById("myBottom");
 // if (y.className === "bottombar") {

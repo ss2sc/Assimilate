@@ -43,6 +43,29 @@ img {
     margin-left: 115px;
 }
 
+/* Game */
+/* responsive grid tutorial: http://bluecaret.com/blog/responsive-grid-of-squares */
+.grid {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 60vh;
+    height: 80vw;
+    max-height: 60vh;
+    background-color: #000000;
+}
+
+.box {
+    flex: 1 0 auto;
+    position: relative;
+    background-color: white;
+}
+.box:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
+}
+
 .topnav{
     overflow: hidden;
 }
