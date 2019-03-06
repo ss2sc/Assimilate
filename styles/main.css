@@ -1,4 +1,4 @@
-/* Customize Bootstrap */
+/* Navbar Stuff */
 .navbar {
     background-color: #000e02;
 }
@@ -9,61 +9,6 @@
 
 .nav-link {
     color: #eeeeee;
-}
-
-.jumbotron {
-    color: #000000;
-}
-
-/* Built-in HTML tags */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Class tags */
-.center-screen {
-    position: fixed;
-    background-color: #000000;
-    color: #ffffff;
-    border-radius:25px;
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -150px;
-    padding: 2%;
-  }
-
-/* ID tags */
-#closeButton {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -215px;
-    margin-left: 115px;
-}
-
-/* Game */
-/* responsive grid tutorial: http://bluecaret.com/blog/responsive-grid-of-squares */
-.grid {
-    margin: 0 auto;
-    width: 80vw;
-    max-width: 60vh;
-    height: 80vw;
-    max-height: 60vh;
-    background-color: #000000;
-}
-
-.box {
-    flex: 1 0 auto;
-    position: relative;
-    background-color: white;
-}
-.box:after {
-    content: "";
-    float:left;
-    display: block;
-    padding-top: 100%;
 }
 
 .topnav{
@@ -87,6 +32,32 @@ img {
     display: none;
 }
 
+/* Center-of-screen stuff */
+.jumbotron {
+    color: #000000;
+}
+
+.center-screen {
+    position: fixed;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius:25px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -150px;
+    padding: 2%;
+}
+
+#closeButton {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -215px;
+    margin-left: 115px;
+}
+
+/* Footer Stuff */
 .bottombar {
     text-align: center;
     background-color: #333;
@@ -114,11 +85,34 @@ img {
 .bottombar a:hover {
     color: white;
 }
-  
 
+/* Built-in HTML tags */
 img {
     max-width: 100%;
-    height: auto
+    height: auto;
+}
+
+/* Game */
+/* responsive grid tutorial: http://bluecaret.com/blog/responsive-grid-of-squares */
+.grid {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 60vh;
+    height: 80vw;
+    max-height: 60vh;
+    background-color: #000000;
+}
+
+.box {
+    flex: 1 0 auto;
+    position: relative;
+    background-color: white;
+}
+.box:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
