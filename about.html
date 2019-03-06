@@ -1,0 +1,80 @@
+<!-- Assimilate Game Website -->
+<!-- Single Page Application -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Assimilate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <!-- hamburger -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Our own sheets -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
+<body>
+    <!-- A grey horizontal navbar that becomes vertical on small screens -->
+    <nav class="navbar navbar-expand-lg">
+        <div class=" navbar-collapse">
+            <div class="topnav" id="myTopnav">
+                <a href="assimilate.html" class="active"><b>ASSIMILATE</b></a>
+                <!-- <a href="#howtoplay" role="button" onclick="openInstructions()">How to Play</a>
+                <a href="#leaderboard" role="button" onclick="openLeaderboard()">Leaderboard</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i> -->
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id = "about"> 
+        <h1>ABOUT US</h1>
+        <div id = "V">
+            <img src="images/vivien.jpg" alt = "Vivien" class=center>
+            <p><br>Hi, my name is Vivien Chen. I'm a 3rd Year BACS and East Asian Studies major from Toronto, Canada. I'm interested in design so my career goal right now is to find a job that combines creativity with CS. I'm taking this course because I'm thinking about working in front-end development and I've learned some basics of web development but I want to expand those skills. I intend to improve my JS skills, learn PHP, and learn Angular. 
+                One interesting thing about myself is that I'm taking a Japanese class at UVA and visited Japan over Winter Break. 
+            </br></p>
+            </div>
+        <div id = "S">
+            <img src="images/stephen.jpg" alt = "Stephen" class=center>
+            <p><br>Hi I'm Stephen! I'm a third year BSCS major from Herndon, Virginia. As of now I want to go into software development at a company that has similar values. I'm taking Web Programming Languages to learn more about web application development and build one of my own. I expect to learn a lot of the in and outs of web applications - usability, design, web app programming languages, etc. as well as build a web app with tools we learn over the course. 
+                Fun fact: I started to do martial arts (wushu) in college.
+            </br></p>
+        </div>
+    </div>   
+
+    <!-- Play page jumbrotron -->
+    <div id="play" class="jumbotron" style="display:none;">
+        <h1>TEST</h1>
+    </div>
+
+    <div id="centerscreen" class="container center-screen" style="display:none; height: 400px; width: 300px;">
+        <!-- How to play View -->
+        <div id="howtoplay" style="display:none;">
+            <h2 style="text-align: center;">How to play</h2>
+            <br>
+            <p>Click on a square in the grid. This will flip the colors of all adjacent squares.</p>
+            <p>The goal of the game is to make all the squares in the grid the same color!</p>
+        </div>
+
+        <!-- Leaderboard View -->
+        <div id="leaderboard" style="display:none;">
+            <h2 style="text-align: center;">Leaderboard</h2>
+        </div>
+    </div>
+    <div class="bottombar" id="myBottom">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+            <!-- <a href="javascript:void(0);" class="icon" onclick="bottomFunction()">&#9776;</a> -->
+    </div>
+</body>
+</html>
