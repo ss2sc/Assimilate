@@ -5,9 +5,7 @@ function openGame() {
 
 function openInstructions() {
     if( document.getElementById("howtoplay").style.display == "block" ) {
-        document.getElementById("centerscreen").style.display = "none";
-        document.getElementById("howtoplay").style.display = "none";
-        document.getElementById("closeButton").style.display = "none";
+        closeCenter();
     }
     else {
         document.getElementById("leaderboard").style.display = "none";
@@ -19,9 +17,7 @@ function openInstructions() {
 
 function openLeaderboard() {
     if( document.getElementById("leaderboard").style.display == "block" ) {
-        document.getElementById("centerscreen").style.display = "none";
-        document.getElementById("leaderboard").style.display = "none";
-        document.getElementById("closeButton").style.display = "none";
+        closeCenter();
     }
     else {
         document.getElementById("howtoplay").style.display = "none";
@@ -31,7 +27,7 @@ function openLeaderboard() {
     }
 }
 
-function closeCenter() {
+function closeCenter() {  // Make all center views invisible
     document.getElementById("centerscreen").style.display = "none";
     document.getElementById("howtoplay").style.display = "none";
     document.getElementById("leaderboard").style.display = "none";
@@ -64,6 +60,7 @@ function changeSquares(numBox) {
     }
 }
 
+/* Helper function for gameplay */
 function flip(numBox) {
     var color1 = "white";
     var color2 = "black";
