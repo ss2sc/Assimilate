@@ -109,9 +109,9 @@ img {
 .box {
     flex: 1 0 auto;
     position: relative;
-    background-color: white;
     border: solid 1px;
     border-color: #c0c1ff;
+    transition: background-color 0.4s ease;
 }
 .box:after {
     content: "";

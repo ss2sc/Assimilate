@@ -1,3 +1,5 @@
+var clicks = 0;
+
 function openGame() {
     document.getElementById("home").style.display = "none";
     document.getElementById("play").style.display = "block";
@@ -45,31 +47,54 @@ function myFunction() {
 }
 
 /* Gameplay */
+// Check for wins
+var win = function() {
+    var spots = document.getElementsByClassName("box");
+    var i;
+    for (i = 0; i < spots.length - 1; i++) {
+        if (spots[i].style.backgroundColor !== spots[i+1].style.backgroundColor) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function changeSquares(numBox) {
-    if ((numBox + 4) % 5 != 4) {  // Check left movement
+    clicks++;
+    if ((numBox + 4) % 5 != 4) {  // Check left flip
         flip(numBox - 1);
     }
-    if ((numBox + 6) % 5 != 0) {  // Check right movement
+    if ((numBox + 6) % 5 != 0) {  // Check right flip
         flip(numBox + 1);
     }
-    if (numBox - 5 >= 0) {  // Check up movement
+    if (numBox - 5 >= 0) {  // Check up flip
         flip(numBox - 5);
     }
-    if (numBox + 5 <= 24) {  // Check down movement
+    if (numBox + 5 <= 24) {  // Check down flip
         flip(numBox + 5);
+    }
+    if (win()) {
+        clicks = 0;
+        document.getElementById("clicks").textContent = "You Win!";
+        // Display win message for 1.5 seconds and then go back to clicks taken
+        setTimeout(function(){
+            document.getElementById("clicks").textContent = "Clicks Taken: " + clicks;
+        }, 1500);
+    } else {
+        document.getElementById("clicks").textContent = "Clicks Taken: " + clicks;
     }
 }
 
 /* Helper function for gameplay */
 function flip(numBox) {
-    var color1 = "white";
-    var color2 = "black";
+    var color1 = "rgb(255, 255, 255)";
+    var color2 = "rgb(0, 0, 0)";
     var spots = document.getElementsByClassName("box");
-    if(spots[numBox].style.backgroundColor == color2) {
-        spots[numBox].style.backgroundColor = color1;
+    if(spots[numBox].style.backgroundColor === color1) {
+        spots[numBox].style.backgroundColor = color2;
     }
     else {
-        spots[numBox].style.backgroundColor = color2;
+        spots[numBox].style.backgroundColor = color1;
     }
 }
 
