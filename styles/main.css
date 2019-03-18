@@ -27,6 +27,9 @@
     color:white;
 }
 
+.topnav a:active {
+    color: #47daff;
+}
 
 .topnav .icon{
     display: none;
@@ -71,7 +74,7 @@
     /* float: left; */
     display: inline-block;
     color: #007bff;
-    text-align: center;
+    text-align: center;background-origin: padding-box;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
@@ -107,6 +110,8 @@ img {
     flex: 1 0 auto;
     position: relative;
     background-color: white;
+    border: solid 1px;
+    border-color: #c0c1ff;
 }
 .box:after {
     content: "";
