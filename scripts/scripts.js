@@ -1,5 +1,3 @@
-var clicks = 0;
-
 function openGame() {
     document.getElementById("home").style.display = "none";
     document.getElementById("play").style.display = "block";
@@ -47,6 +45,9 @@ function myFunction() {
 }
 
 /* Gameplay */
+var clicks = 0;
+var record = 100;
+
 // Check for wins
 var win = function() {
     var spots = document.getElementsByClassName("box");
@@ -74,12 +75,54 @@ function changeSquares(numBox) {
         flip(numBox + 5);
     }
     if (win()) {
+        var newRecord = (a, b) => a < b;
+        if (newRecord(clicks, record)) {
+            record = clicks;
+            document.getElementById("clicks").textContent = "New Record of " + record + "!";
+        } else {
+            document.getElementById("clicks").textContent = "You Win!";
+        }
         clicks = 0;
-        document.getElementById("clicks").textContent = "You Win!";
-        // Display win message for 1.5 seconds and then go back to clicks taken
+        // Display win message for 1.5 seconds and then go back to number of clicks and reset the puzzle
         setTimeout(function(){
             document.getElementById("clicks").textContent = "Clicks Taken: " + clicks;
-        }, 1500);
+            var spots = document.getElementsByClassName("box");
+            // Hard-coded reset board for now
+            // Row 1
+            spots[0].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[1].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[2].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[3].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[4].style.backgroundColor = "rgb(255, 255, 255)";
+
+            // Row 2
+            spots[5].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[6].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[7].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[8].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[9].style.backgroundColor = "rgb(0, 0, 0)";
+
+            // Row 3
+            spots[10].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[11].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[12].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[13].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[14].style.backgroundColor = "rgb(255, 255, 255)";
+
+            // Row 4
+            spots[15].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[16].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[17].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[18].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[19].style.backgroundColor = "rgb(0, 0, 0)";
+
+            // Row 5
+            spots[20].style.backgroundColor = "rgb(255, 255, 255)";
+            spots[21].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[22].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[23].style.backgroundColor = "rgb(0, 0, 0)";
+            spots[24].style.backgroundColor = "rgb(255, 255, 255)";
+        }, 2500);
     } else {
         document.getElementById("clicks").textContent = "Clicks Taken: " + clicks;
     }
