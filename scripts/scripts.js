@@ -158,14 +158,14 @@ function validateForm(){
     }
     if (email === ''){    // check if appropriate data are entered
         //alert("email");
-        if(!validFormat) // Have it focus on the first invalid textfield
+        if(validFormat) // Have it focus on the first invalid textfield
             document.getElementById("mail").focus(); 
         document.getElementById("mail-note").innerHTML = "Please enter your email"; 
         validFormat = false; 
     } 
     else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))){
         //alert("email"); 
-        if(!validFormat) // Have it focus on the first invalid textfield
+        if(validFormat) // Have it focus on the first invalid textfield
             document.getElementById("mail").focus(); 
         document.getElementById("mail-note").innerHTML = "Please enter a valid email that contains @, doesn't have double dots and doesn't start with \".\""; 
         validFormat = false; 
@@ -175,7 +175,7 @@ function validateForm(){
     }
     if (comments === ''){    // check if appropriate data are entered 
         //alert("comments");
-        if(!validFormat) // Have it focus on the first invalid textfield
+        if(validFormat) // Have it focus on the first invalid textfield
             document.getElementById("comments").focus(); 
         document.getElementById("comments-note").innerHTML = "Please enter a comment/question"; 
         validFormat = false; 
