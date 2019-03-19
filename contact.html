@@ -34,13 +34,22 @@
     <div id = "contact"> 
         <h1>CONTACT US</h1>
         <h4>Want to make Assimilate better? <br> Shoot Stephen and Vivien an email if you have any comments, questions, or feedback: <br></h4>
-        <form action="mailto:yystoaix@gmail.com" method="post" enctype="text/plain">
-            Name:<br>
-            <input type="text" name="name"><br>
-            Your E-mail:<br>
-            <input type="text" name="mail"><br>
-            Comments/Questions/Feedback:<br>
-            <textarea name="comments" cols="98" rows="10"></textarea><br><br>
+        <form name="contactForm" action="mailto:yystoaix@gmail.com" onsubmit="return validateForm()" method="post">
+            <div class="form-group">
+                <br>Name:<br>
+                <input type="text" id="name"><br>
+                <span class="error" id="name-note"></span>
+            </div>
+            <div class="form-group">
+                Your E-mail:<br>
+                <input type="text" id="mail"><br>
+                <span class="error" id="mail-note"></span>
+            </div>
+            <div class="form-group">
+                Comments/Questions/Feedback:<br>
+                <textarea name="comments" id="comments" cols="98" rows="10"></textarea><br>
+                <span class="error" id="comments-note"></span>
+            </div>
             <input type="submit" value="Send">
             <input type="reset" value="Reset">
         </form>

@@ -174,3 +174,7 @@ input[name=mail], input[name=name] {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+
+.error { 
+    color: red;
+}
