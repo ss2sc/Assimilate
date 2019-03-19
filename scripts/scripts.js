@@ -1,3 +1,4 @@
+/* Made by Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) */
 function openGame() {
     document.getElementById("home").style.display = "none";
     document.getElementById("play").style.display = "block";
