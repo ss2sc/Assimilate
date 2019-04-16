@@ -2,7 +2,7 @@
 <!-- Single Page Application -->
 <!-- Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
 <?php
-require 'php/connect.php';
+require 'connect.php';
 $db_found = mysqli_select_db( $db_handle, $database );
 
 // $action = "list_users";        // default action
