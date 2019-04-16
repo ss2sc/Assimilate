@@ -47,7 +47,7 @@ function myFunction() {
 
 /* Gameplay */
 var clicks = 0;
-var record = 100;
+var record = 10000;
 
 // Check for wins
 var win = function() {

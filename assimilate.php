@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
     <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
+
 <body>
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
     <nav class="navbar navbar-expand-lg">
@@ -38,16 +39,16 @@
         </div>
     </nav>
 
-    <!-- Home page jumbrotron -->
+    <!-- Home page jumbotron -->
     <div id="home" class="jumbotron" style="display:block;">
         <div class="container">
             <div class="row">
-                <!-- Left side of jumbrotron -->
+                <!-- Left side of jumbotron -->
                 <div class="col-md-6 my-auto">
                     <img src="images/placeholder.png">
                 </div>
 
-                <!-- Right side of jumbrotron -->
+                <!-- Right side of jumbotron -->
                 <div class="col-md-6 my-auto">
                     <h1 style="text-align: center;">Assimilate</h1>
                     <p style="text-align: center;">Make all of the squares one color!</p>
@@ -55,28 +56,44 @@
                     <p style="text-align: center;"> 
                         <a class="btn btn-primary btn-lg" href="#play" role="button" onclick="openGame()">Play</a>
                     </p>
+                    <br/>
+                    <p style="text-align: center;">Want your scores saved? Enter your name here:</p>
+                    <form action="" method="post" style="text-align: center;">
+                        <input type="text" name="name"/>
+                        <input class="btn btn-primary" type="submit"/>
+                    </form>
+                    <?php
+                        if (isSet($_POST['name'])) {
+                            if (empty($_POST['name']) or strlen($_POST['name']) > 12) {
+                                print "<p style='color: red; text-align: center;'>Please enter a name under 12 characters</p>";
+                            }
+                            else {
+                                setcookie('name', $_POST['name'], time()+3600);
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Play page jumbrotron -->
+    <!-- Play page jumbotron -->
     <div id="play" class="jumbotron" style="display:none;">
         <h3 id="clicks" style="text-align: center;">Clicks Taken: 0</h3>
         <div class="grid">
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(0)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(1)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(2)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(3)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(1)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(2)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(3)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(4)"></div>
             </div>
             <div class="row">
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(5)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(6)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(5)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(6)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(7)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(8)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(9)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(8)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(9)"></div>
             </div>
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(10)"></div>
@@ -86,27 +103,19 @@
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(14)"></div>
             </div>
             <div class="row">
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(15)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(16)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(15)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(16)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(17)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(18)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(19)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(18)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(19)"></div>
             </div>
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(20)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(21)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(22)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(23)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(21)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(22)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(23)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(24)"></div>
             </div>
-        </div>
-
-        <div class="row">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
         </div>
     </div>
 
