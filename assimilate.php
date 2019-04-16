@@ -3,7 +3,7 @@
 <!-- Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
 <?php
 require 'connect.php';
-$db_found = mysqli_select_db( $db_handle, $database );
+$db_found = mysqli_select_db( $db_handle, $db_name );
 
 // $action = "list_users";        // default action
 ?>
@@ -30,7 +30,6 @@ $db_found = mysqli_select_db( $db_handle, $database );
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
     <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
-
 <body>
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
     <nav class="navbar navbar-expand-lg">
@@ -46,16 +45,16 @@ $db_found = mysqli_select_db( $db_handle, $database );
         </div>
     </nav>
 
-    <!-- Home page jumbotron -->
+    <!-- Home page jumbrotron -->
     <div id="home" class="jumbotron" style="display:block;">
         <div class="container">
             <div class="row">
-                <!-- Left side of jumbotron -->
+                <!-- Left side of jumbrotron -->
                 <div class="col-md-6 my-auto">
                     <img src="images/placeholder.png">
                 </div>
 
-                <!-- Right side of jumbotron -->
+                <!-- Right side of jumbrotron -->
                 <div class="col-md-6 my-auto">
                     <h1 style="text-align: center;">Assimilate</h1>
                     <p style="text-align: center;">Make all of the squares one color!</p>
@@ -63,28 +62,17 @@ $db_found = mysqli_select_db( $db_handle, $database );
                     <p style="text-align: center;"> 
                         <a class="btn btn-primary btn-lg" href="#play" role="button" onclick="openGame()">Play</a>
                     </p>
-                    <br/>
-                    <p style="text-align: center;">Want your scores saved? Enter your name here:</p>
-                    <form action="" method="post" style="text-align: center;">
-                        <input type="text" name="name"/>
-                        <input class="btn btn-primary" type="submit"/>
-                    </form>
-                    <?php
-                        if (isSet($_POST['name'])) {
-                            if (empty($_POST['name']) or strlen($_POST['name']) > 12) {
-                                print "<p style='color: red; text-align: center;'>Please enter a name under 12 characters</p>";
-                            }
-                            else {
-                                setcookie('name', $_POST['name'], time()+3600);
-                            }
-                        }
-                    ?>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Play page jumbotron -->
+    <div class="bottombar" id="myBottom">
+        <a href="about.html">About</a>
+        <a href="contact.php">Contact Us</a>
+    </div>
+
+    <!-- Play page jumbrotron -->
     <div id="play" class="jumbotron" style="display:none;">
         <h3 id="clicks" style="text-align: center;">Clicks Taken: 0</h3>
         <div class="grid">
@@ -143,7 +131,7 @@ $db_found = mysqli_select_db( $db_handle, $database );
                     <th>Name</th>
                     <th>Score</th>
                 </tr>
-            <!-- PHP -->
+            <!-- PHP show leaderboard data from database-->
             <?php
                 $rank = 1;
                 foreach ($results as $result){
@@ -153,7 +141,6 @@ $db_found = mysqli_select_db( $db_handle, $database );
                         </td><tr>";
                     $rank++;
                 }
-        
             ?>
             </table>
         </div>
@@ -161,26 +148,47 @@ $db_found = mysqli_select_db( $db_handle, $database );
     
     <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
         <div id = submitscreen style="display:none;">
-            <h3 style="text-align: center;">Would you like to add your name to our leaderboard?</h3>
-                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+            <h3 style="text-align: center;">Add your name to Assimilate's leaderboard!<br></h3>
+                <form action="" method="POST">
+                    <br>
                     <dl>
-                        <dt><dd><input type="text" name="name"
-                        value="Enter your name" /></dd>
+                        <dt><dd><input id="inputname" type="text" name="name"/></dd>
+                        <dd><input id="score" type="hidden" name="score" value="getClicks()"/></dd>
+                        <?php 
+                            function addScore($User, $Score){
+                                global $db;		
+                                $query = "INSERT INTO leaderboard (User, Score) VALUES (:user, :score)";
+                                $statement = $db->prepare($query);
+                                $statement->bindValue(':user', $User);
+                                $statement->bindValue(':score', $Score);
+                                $statement->execute();
+                                $statement->closeCursor();
+                            }
+
+                            if (isSet($_POST['submit'])){
+                                if (!empty($_POST['name'])){
+                                    if (strlen($_POST['name']) > 0 && strlen($_POST['name']) <11){
+                                        $name = $_POST['name'];
+                                        $score = $_POST['score'];
+                                        addScore($name, $score);
+                                    }
+                                    else{
+                                        echo "Please type less than 10 characters";
+                                    }
+                                }
+                                else{
+                                    echo "Please enter your name";
+                                }
+                            }
+                        ?> 
+                        <!-- do value thing where their name is auto filled based on cookies -->
                     </dl>
-                    <input type="submit"/>
+                <input id="inputname" name="submit" type="submit"> />
         </form>
         </div>
     </div>
 
-            
-
-    <img src="images/x.png" id="closeButton" style="display:none;" role="button" onclick="closeCenter()">
-
-    <div class="bottombar" id="myBottom">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact Us</a>
-    </div>
-
+    <img src="images/x.png" id="closeButton" style="display:none;" role="button" onclick="closeCenter() , closeSubmit()">
 
 </body>
 </html>

@@ -37,13 +37,7 @@ function openSubmit(){
 
 function closeCenter() {  // Make all center views invisible
     document.getElementById("centerscreen").style.display = "none";
-    document.getElementById("howtoplay").style.display = "none";
-    document.getElementById("leaderboard").style.display = "none";
-    document.getElementById("closeButton").style.display = "none";
-}
-
-function closeSubmit(){
-    document.getElementById("submitscreen").style.display = "none";
+    document.getElementById("centersubmit").style.display = "none";
     document.getElementById("howtoplay").style.display = "none";
     document.getElementById("leaderboard").style.display = "none";
     document.getElementById("closeButton").style.display = "none";
@@ -61,7 +55,7 @@ function myFunction() {
 
 /* Gameplay */
 var clicks = 0;
-var record = 10000;
+var record = 100;
 
 // Check for wins
 var win = function() {
@@ -95,11 +89,12 @@ function changeSquares(numBox) {
         if (newRecord(clicks, record)) {
             record = clicks;
             document.getElementById("clicks").textContent = "New Record of " + record + "!";
-            openSubmit();
+            document.getElementsByName("score")[0].value = clicks;
+            openSubmit(); //open submission screen
         } 
-        // else {
-        //     document.getElementById("clicks").textContent = "You Win!";
-        // }
+        else {
+            document.getElementById("clicks").textContent = "You Win!";
+        }
 
         clicks = 0;
         // Display win message for 1.5 seconds and then go back to number of clicks and reset the puzzle
@@ -160,6 +155,9 @@ function flip(numBox) {
     }
 }
 
+function getClicks(){
+    return document.getElementByName("score");
+}
 
 /* Validating form data for Contact Page */; 
 function validateForm(){ 

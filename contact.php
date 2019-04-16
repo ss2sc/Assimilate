@@ -18,9 +18,10 @@
     <!-- hamburger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     <!-- Our own sheets -->
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
-    <script type="text/javascript" src="Assimilate/scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 <body>
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
