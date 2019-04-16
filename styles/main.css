@@ -66,11 +66,6 @@
     padding: 2%;
 }
 
-.inputname{
-    margin: 0 auto;
-    display: inherit;
-}
-
 #closeButton {
     position: fixed;
     top: 50%;
@@ -196,4 +191,13 @@ input[name=mail], input[name=name] {
 
 .error { 
     color: red;
+}
+
+#inputname{
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    display: inherit;
+    margin: 0px auto;
 }
