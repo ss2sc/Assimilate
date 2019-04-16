@@ -1,15 +1,13 @@
+<!-- Made by Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
 <?PHP
-// require 'configure.php';
 
 $db_name="leaderboard";
 $username='pav';
 $password='pav';
 
-// print "Server found" . "<BR>";
 
 $dsn = "mysql:host=localhost:3306;dbname=leaderboard";
 
-// $database = "leaderboard";
 $db = new PDO($dsn, 'pav', 'pav');
 
 $db_handle=mysqli_connect('localhost','pav','pav');

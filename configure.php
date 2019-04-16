@@ -1,3 +1,5 @@
+<!-- Made by Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
+
 <?PHP
 
 define('DB_SERVER', 'localhost');
