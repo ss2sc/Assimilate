@@ -145,33 +145,11 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
     <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
         <div id = submitscreen style="display:none;">
             <h3 style="text-align: center;">Add your name to Assimilate's leaderboard!<br></h3>
-                <form action="" method="get">
+                <form action="addScore.php" method="get">
                     <br>
                     <dl>
-                        <dt><dd><input id="inputname" type="text" name="name"/></dd>
+                        <dt><dd><input id="inputname" type="text" name="name" value="<?php if(isSet($_COOKIE['name'])) echo $_COOKIE['name'];?>"/></dd>
                         <dd><input id="score" type="hidden" name="score"/></dd>
-                        <?php 
-                            function addScore($User, $Score){
-                                global $db;		
-                                $query = "INSERT INTO leaderboard (User, Score) VALUES (:user, :score)";
-                                $statement = $db->prepare($query);
-                                $statement->bindValue(':user', $User);
-                                $statement->bindValue(':score', $Score);
-                                $statement->execute();
-                                $statement->closeCursor();
-                            }
-
-                            if (isSet($_GET['submit'])){
-                                if (strlen($_GET['name']) > 0 && strlen($_GET['name']) < 11){
-                                    $name = $_GET['name'];
-                                    $score = $_GET['score'];
-                                    addScore($name, $score);
-                                }
-                                else{
-                                    echo "<p style='text-align: center;'>Please enter a name less than 10 characters</p>";
-                                }
-                            }
-                        ?> 
                         <!-- do value thing where their name is auto filled based on cookies -->
                     </dl>
                 <input id="inputname" name="submit" type="submit">
