@@ -1,7 +1,9 @@
 <!-- Assimilate Game Website -->
 <!-- Single Page Application -->
 <!-- Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,36 +41,48 @@
         <form name="contactForm" action="" method="post">
             <div class="form-group">
                 <br>Name:<br>
-                <input type="text" name='name' id="name"><br>
                 <?php
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         if ($_POST['name'] == '') {
                             echo "<p style='color: red;'> Please enter a name</p>";
                         }
+                        else {
+                            unset($_SESSION['name']);
+                            $_SESSION['name'] = $_POST['name'];
+                        }
                     }
                 ?>
+                <input type="text" name='name' id="name" value="<?php if(isSet($_SESSION['name'])) echo $_SESSION['name'];?>"><br>
             </div>
             <div class="form-group">
                 Your E-mail:<br>
-                <input type="text" name='mail' id="mail"><br>
                 <?php
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
                             echo "<p style='color: red;'> Please enter a valid email</p>";
                         }
+                        else {
+                            unset($_SESSION['mail']);
+                            $_SESSION['mail'] = $_POST['mail'];
+                        }
                     }
                 ?>
+                <input type="text" name='mail' id="mail" value="<?php if(isSet($_SESSION['mail'])) echo $_SESSION['mail'];?>"><br>
             </div>
             <div class="form-group">
                 Comments/Questions/Feedback:<br>
-                <textarea name="comments" id="comments" cols="98" rows="10"></textarea><br>
                 <?php
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         if ($_POST['comments'] == '') {
                             echo "<p style='color: red;'> Please enter a comment</p>";
                         }
+                        else {
+                            unset($_SESSION['comments']);
+                            $_SESSION['comments'] = $_POST['comments'];
+                        }
                     }
                 ?>
+                <textarea name="comments" id="comments" cols="98" rows="10"><?php if(isSet($_SESSION['comments'])) echo $_SESSION['comments'];?></textarea><br>
             </div>
             <input type="submit" name="submit" value="Send">
             <input type="reset" value="Reset"><br/><br/>
@@ -76,6 +90,10 @@
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if ($_POST['name'] != '' && filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) && $_POST['comments'] != '') {
                         echo "Email sent successfully!";
+                        unset($_SESSION['name']);
+                        unset($_SESSION['mail']);
+                        unset($_SESSION['comments']);
+                        session_destroy();
                     }
                 }
             ?>
