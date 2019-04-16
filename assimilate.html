@@ -143,10 +143,19 @@ $db_found = mysqli_select_db( $db_handle, $database );
     </div>
     
     <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
-        <div id = submitscreen >
-            <input type="button" name="confirm" id="confirm" onClick="confirm('Want to add your name to our leaderboard?')" value="click">
+        <div id = submitscreen style="display:none;">
+            <h3 style="text-align: center;">Would you like to add your name to our leaderboard?</h3>
+                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                    <dl>
+                        <dt><dd><input type="text" name="name"
+                        value="Enter your name" /></dd>
+                    </dl>
+                    <input type="submit"/>
+        </form>
         </div>
     </div>
+
+            
 
     <img src="images/x.png" id="closeButton" style="display:none;" role="button" onclick="closeCenter()">
 

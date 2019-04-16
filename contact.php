@@ -21,14 +21,14 @@
 
     <!-- Our own sheets -->
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
-    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="Assimilate/scripts/scripts.js"></script>
 </head>
 <body>
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
     <nav class="navbar navbar-expand-lg">
         <div class=" navbar-collapse">
             <div class="topnav" id="myTopnav">
-                <a href="assimilate.html" class="active"><b>ASSIMILATE</b></a>
+                <a href="assimilate.php" class="active"><b>ASSIMILATE</b></a>
             </div>
         </div>
     </nav>
@@ -73,7 +73,7 @@
     </div>
     <div class="bottombar" id="myBottom">
         <a href="about.html">About</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="contact.php">Contact Us</a>
             <!-- <a href="javascript:void(0);" class="icon" onclick="bottomFunction()">&#9776;</a> -->
     </div>
 </body>

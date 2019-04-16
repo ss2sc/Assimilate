@@ -32,6 +32,7 @@ function openLeaderboard() {
 function openSubmit(){
     document.getElementById("centersubmit").style.display = "block";
     document.getElementById("submitscreen").style.display = "block";
+    document.getElementById("closeButton").style.display = "block";
 }
 
 function closeCenter() {  // Make all center views invisible
@@ -43,6 +44,9 @@ function closeCenter() {  // Make all center views invisible
 
 function closeSubmit(){
     document.getElementById("submitscreen").style.display = "none";
+    document.getElementById("howtoplay").style.display = "none";
+    document.getElementById("leaderboard").style.display = "none";
+    document.getElementById("closeButton").style.display = "none";
 }
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
