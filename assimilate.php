@@ -1,9 +1,16 @@
 <!-- Assimilate Game Website -->
 <!-- Single Page Application -->
 <!-- Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
+<?php
+require 'php/connect.php';
+$db_found = mysqli_select_db( $db_handle, $database );
+
+// $action = "list_users";        // default action
+?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,17 +73,17 @@
         <div class="grid">
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(0)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(1)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(2)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(3)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(1)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(2)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(3)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(4)"></div>
             </div>
             <div class="row">
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(5)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(6)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(5)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(6)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(7)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(8)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(9)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(8)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(9)"></div>
             </div>
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(10)"></div>
@@ -86,49 +93,68 @@
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(14)"></div>
             </div>
             <div class="row">
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(15)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(16)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(15)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(16)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(17)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(18)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(19)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(18)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(19)"></div>
             </div>
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(20)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(21)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(22)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(23)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(21)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(22)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(23)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(24)"></div>
             </div>
         </div>
-
-        <div class="row">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-        </div>
     </div>
 
-    <div id="centerscreen" class="container center-screen" style="display:none; height: 400px; width: 300px;">
+    <div id="centerscreen" class="container center-screen" style="display:none; height: 700px; width: 500px;">
         <!-- How to play View -->
-        <div id="howtoplay" style="display:none;">
-            <h2 style="text-align: center;">How to play</h2>
+        <div id="howtoplay" style="display:none; font-size: 30px">
+            <h1 style="text-align: center;">How to play</h2>
             <br>
             <p>Click on a square in the grid. This will flip the colors of all adjacent squares.</p>
-            <p>The goal of the game is to make all the squares in the grid the same color!</p>
+            <p>The goal of the game is to make all the squares in the grid the <b>same color!</b></p>
         </div>
-
         <!-- Leaderboard View -->
         <div id="leaderboard" style="display:none;">
             <h2 style="text-align: center;">Leaderboard</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            <!-- PHP -->
+            <?php
+                $rank = 1;
+                foreach ($results as $result){
+                    echo "<tr> <td>{$rank}</td>
+                        <td>{$result['User']}</td>
+                        <td>{$result['Score']}
+                        </td><tr>";
+                    $rank++;
+                }
+        
+            ?>
+            </table>
         </div>
     </div>
+    
+    <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
+        <div id = submitscreen >
+            <input type="button" name="confirm" id="confirm" onClick="confirm('Want to add your name to our leaderboard?')" value="click">
+        </div>
+    </div>
+
     <img src="images/x.png" id="closeButton" style="display:none;" role="button" onclick="closeCenter()">
 
     <div class="bottombar" id="myBottom">
         <a href="about.html">About</a>
         <a href="contact.html">Contact Us</a>
     </div>
+
+
 </body>
 </html>

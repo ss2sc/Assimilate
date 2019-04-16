@@ -28,11 +28,21 @@ function openLeaderboard() {
     }
 }
 
+//
+function openSubmit(){
+    document.getElementById("centersubmit").style.display = "block";
+    document.getElementById("submitscreen").style.display = "block";
+}
+
 function closeCenter() {  // Make all center views invisible
     document.getElementById("centerscreen").style.display = "none";
     document.getElementById("howtoplay").style.display = "none";
     document.getElementById("leaderboard").style.display = "none";
     document.getElementById("closeButton").style.display = "none";
+}
+
+function closeSubmit(){
+    document.getElementById("submitscreen").style.display = "none";
 }
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
@@ -75,14 +85,18 @@ function changeSquares(numBox) {
     if (numBox + 5 <= 24) {  // Check down flip
         flip(numBox + 5);
     }
-    if (win()) {
+    if (win()) { 
+        //call php function to INSERT
         var newRecord = (a, b) => a < b;
         if (newRecord(clicks, record)) {
             record = clicks;
             document.getElementById("clicks").textContent = "New Record of " + record + "!";
-        } else {
-            document.getElementById("clicks").textContent = "You Win!";
-        }
+            openSubmit();
+        } 
+        // else {
+        //     document.getElementById("clicks").textContent = "You Win!";
+        // }
+
         clicks = 0;
         // Display win message for 1.5 seconds and then go back to number of clicks and reset the puzzle
         setTimeout(function(){
@@ -142,6 +156,7 @@ function flip(numBox) {
     }
 }
 
+
 /* Validating form data for Contact Page */; 
 function validateForm(){ 
     var name = document.forms["contactForm"]["name"].value; 
@@ -185,11 +200,3 @@ function validateForm(){
     }
     return validFormat; 
 } 
-
-// function bottomFunction() {
-// var y = document.getElementById("myBottom");
-// if (y.className === "bottombar") {
-//     y.className += " bottomresponsive";
-// } else {
-//     y.className = "bottombar";
-// }

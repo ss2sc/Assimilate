@@ -43,14 +43,14 @@
 }
 
 .center-screen {
-    position: fixed;
+    border-radius:25px;
+    position:fixed;
     background-color: #000000;
     color: #ffffff;
-    border-radius:25px;
     top: 50%;
     left: 50%;
-    margin-top: -200px;
-    margin-left: -150px;
+    margin-top: -345px;
+    margin-left: -250px;
     padding: 2%;
 }
 
@@ -58,8 +58,8 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -215px;
-    margin-left: 115px;
+    margin-top: -360px;
+    margin-left: 220px;
 }
 
 /* Footer Stuff */
