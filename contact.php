@@ -36,24 +36,50 @@
     <div id = "contact"> 
         <h1>CONTACT US</h1>
         <h4>Want to make Assimilate better? <br> Shoot Stephen and Vivien an email if you have any comments, questions, or feedback: <br></h4>
-        <form name="contactForm" action="mailto:yystoaix@gmail.com" onsubmit="return validateForm()" method="post">
+        <form name="contactForm" action="" method="post">
             <div class="form-group">
                 <br>Name:<br>
-                <input type="text" id="name"><br>
-                <span class="error" id="name-note"></span>
+                <input type="text" name='name' id="name"><br>
+                <?php
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        if ($_POST['name'] == '') {
+                            echo "<p style='color: red;'> Please enter a name</p>";
+                        }
+                    }
+                ?>
             </div>
             <div class="form-group">
                 Your E-mail:<br>
-                <input type="text" id="mail"><br>
-                <span class="error" id="mail-note"></span>
+                <input type="text" name='mail' id="mail"><br>
+                <?php
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                            echo "<p style='color: red;'> Please enter a valid email</p>";
+                        }
+                    }
+                ?>
             </div>
             <div class="form-group">
                 Comments/Questions/Feedback:<br>
                 <textarea name="comments" id="comments" cols="98" rows="10"></textarea><br>
-                <span class="error" id="comments-note"></span>
+                <?php
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        if ($_POST['comments'] == '') {
+                            echo "<p style='color: red;'> Please enter a comment</p>";
+                        }
+                    }
+                ?>
             </div>
-            <input type="submit" value="Send">
-            <input type="reset" value="Reset">
+            <input type="submit" name="submit" value="Send">
+            <input type="reset" value="Reset"><br/><br/>
+            <?php
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if ($_POST['name'] != '' && filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) && $_POST['comments'] != '') {
+                        echo "Email sent successfully!";
+                    }
+                }
+            ?>
+
         </form>
     </div>
     

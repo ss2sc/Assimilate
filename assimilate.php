@@ -45,16 +45,16 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
         </div>
     </nav>
 
-    <!-- Home page jumbrotron -->
+    <!-- Home page jumbotron -->
     <div id="home" class="jumbotron" style="display:block;">
         <div class="container">
             <div class="row">
-                <!-- Left side of jumbrotron -->
+                <!-- Left side of jumbotron -->
                 <div class="col-md-6 my-auto">
                     <img src="images/placeholder.png">
                 </div>
 
-                <!-- Right side of jumbrotron -->
+                <!-- Right side of jumbotron -->
                 <div class="col-md-6 my-auto">
                     <h1 style="text-align: center;">Assimilate</h1>
                     <p style="text-align: center;">Make all of the squares one color!</p>
@@ -67,14 +67,10 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
         </div>
     </div>
 
-    <div class="bottombar" id="myBottom">
-        <a href="about.html">About</a>
-        <a href="contact.php">Contact Us</a>
-    </div>
-
-    <!-- Play page jumbrotron -->
+    <!-- Play page jumbotron -->
     <div id="play" class="jumbotron" style="display:none;">
         <h3 id="clicks" style="text-align: center;">Clicks Taken: 0</h3>
+        <div style="text-align: center;"><button class="btn btn-primary" onclick="resetBoard()" style="text-align: center;">Reset</button></div>
         <div class="grid">
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(0)"></div>
@@ -149,11 +145,11 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
     <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
         <div id = submitscreen style="display:none;">
             <h3 style="text-align: center;">Add your name to Assimilate's leaderboard!<br></h3>
-                <form action="" method="POST">
+                <form action="" method="get">
                     <br>
                     <dl>
                         <dt><dd><input id="inputname" type="text" name="name"/></dd>
-                        <dd><input id="score" type="hidden" name="score" value="getClicks()"/></dd>
+                        <dd><input id="score" type="hidden" name="score"/></dd>
                         <?php 
                             function addScore($User, $Score){
                                 global $db;		
@@ -165,30 +161,29 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
                                 $statement->closeCursor();
                             }
 
-                            if (isSet($_POST['submit'])){
-                                if (!empty($_POST['name'])){
-                                    if (strlen($_POST['name']) > 0 && strlen($_POST['name']) <11){
-                                        $name = $_POST['name'];
-                                        $score = $_POST['score'];
-                                        addScore($name, $score);
-                                    }
-                                    else{
-                                        echo "Please type less than 10 characters";
-                                    }
+                            if (isSet($_GET['submit'])){
+                                if (strlen($_GET['name']) > 0 && strlen($_GET['name']) < 11){
+                                    $name = $_GET['name'];
+                                    $score = $_GET['score'];
+                                    addScore($name, $score);
                                 }
                                 else{
-                                    echo "Please enter your name";
+                                    echo "<p style='text-align: center;'>Please enter a name less than 10 characters</p>";
                                 }
                             }
                         ?> 
                         <!-- do value thing where their name is auto filled based on cookies -->
                     </dl>
-                <input id="inputname" name="submit" type="submit"> />
+                <input id="inputname" name="submit" type="submit">
         </form>
         </div>
     </div>
 
     <img src="images/x.png" id="closeButton" style="display:none;" role="button" onclick="closeCenter() , closeSubmit()">
 
+    <div class="bottombar" id="myBottom">
+        <a href="about.html">About</a>
+        <a href="contact.php">Contact Us</a>
+    </div>
 </body>
 </html>

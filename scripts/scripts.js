@@ -99,47 +99,52 @@ function changeSquares(numBox) {
         clicks = 0;
         // Display win message for 1.5 seconds and then go back to number of clicks and reset the puzzle
         setTimeout(function(){
-            document.getElementById("clicks").textContent = "Clicks Taken: " + clicks;
-            var spots = document.getElementsByClassName("box");
-            // Hard-coded reset board for now
-            // Row 1
-            spots[0].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[1].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[2].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[3].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[4].style.backgroundColor = "rgb(255, 255, 255)";
-
-            // Row 2
-            spots[5].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[6].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[7].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[8].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[9].style.backgroundColor = "rgb(0, 0, 0)";
-
-            // Row 3
-            spots[10].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[11].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[12].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[13].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[14].style.backgroundColor = "rgb(255, 255, 255)";
-
-            // Row 4
-            spots[15].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[16].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[17].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[18].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[19].style.backgroundColor = "rgb(0, 0, 0)";
-
-            // Row 5
-            spots[20].style.backgroundColor = "rgb(255, 255, 255)";
-            spots[21].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[22].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[23].style.backgroundColor = "rgb(0, 0, 0)";
-            spots[24].style.backgroundColor = "rgb(255, 255, 255)";
+            resetBoard();
         }, 2500);
     } else {
         document.getElementById("clicks").textContent = "Clicks Taken: " + clicks;
     }
+}
+
+function resetBoard() {
+    clicks = 0;
+    document.getElementById("clicks").textContent = "Clicks Taken: 0";
+    var spots = document.getElementsByClassName("box");
+    // Hard-coded reset board for now
+    // Row 1
+    spots[0].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[1].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[2].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[3].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[4].style.backgroundColor = "rgb(255, 255, 255)";
+
+    // Row 2
+    spots[5].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[6].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[7].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[8].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[9].style.backgroundColor = "rgb(0, 0, 0)";
+
+    // Row 3
+    spots[10].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[11].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[12].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[13].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[14].style.backgroundColor = "rgb(255, 255, 255)";
+
+    // Row 4
+    spots[15].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[16].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[17].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[18].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[19].style.backgroundColor = "rgb(0, 0, 0)";
+
+    // Row 5
+    spots[20].style.backgroundColor = "rgb(255, 255, 255)";
+    spots[21].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[22].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[23].style.backgroundColor = "rgb(0, 0, 0)";
+    spots[24].style.backgroundColor = "rgb(255, 255, 255)";
 }
 
 /* Helper function for gameplay */
@@ -160,7 +165,7 @@ function getClicks(){
 }
 
 /* Validating form data for Contact Page */; 
-function validateForm(){ 
+/*function validateForm(){ 
     var name = document.forms["contactForm"]["name"].value; 
     var email = document.forms["contactForm"]["mail"].value; 
     var comments = document.forms["contactForm"]["comments"].value; 
@@ -201,4 +206,4 @@ function validateForm(){
         document.getElementById("comments-note").innerHTML = "";
     }
     return validFormat; 
-} 
+}*/ 
