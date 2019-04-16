@@ -90,7 +90,7 @@ function changeSquares(numBox) {
         flip(numBox + 5);
     }
     if (win()) { 
-        //call php function to INSERT
+        // call php function to INSERT
         var newRecord = (a, b) => a < b;
         if (newRecord(clicks, record)) {
             record = clicks;
