@@ -1,11 +1,11 @@
 <!-- Assimilate Game Website -->
 <!-- Single Page Application -->
 <!-- Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
+<!-- received help from Emily Zou (ez6ah) for formatting table to read from database-->
 <?php
 require 'connect.php';
 $db_found = mysqli_select_db( $db_handle, $db_name );
 
-// $action = "list_users";        // default action
 ?>
 
 <!DOCTYPE html>
@@ -142,15 +142,16 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
         </div>
     </div>
     
+    <!-- Score submission -->
     <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
         <div id = submitscreen style="display:none;">
             <h3 style="text-align: center;">Add your name to Assimilate's leaderboard!<br></h3>
                 <form action="addScore.php" method="get">
                     <br>
                     <dl>
+                        <!-- auto fill name with cookies -->
                         <dt><dd><input id="inputname" type="text" name="name" value="<?php if(isSet($_COOKIE['name'])) echo $_COOKIE['name'];?>"/></dd>
                         <dd><input id="score" type="hidden" name="score"/></dd>
-                        <!-- do value thing where their name is auto filled based on cookies -->
                     </dl>
                 <input id="inputname" name="submit" type="submit">
         </form>
