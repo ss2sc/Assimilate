@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>
+    {{ title }}
+  </h1>
+
+  <!-- Display data received from the back end <br/>
+  response data = {{ responsedata | json}}
+  <br/>
+  <hr/>
+  Data binding exercise 
+  <br/>
+  {{ contactForm.value | json }}
+  <br/>
+  {{ contactModel | json }} 
+  <hr/> -->
+
+  <form #contactForm="ngForm">
+    <div class="form-group">
+      <label>Name: </label>
+      <input required #name="ngModel" 
+             [class.is-invalid]="name.invalid"
+             [(ngModel)]="contactModel.name" type="text" class="form-control" name="name">
+             <div *ngIf="name.touched && name.errors">
+                <div class="alert alert-danger" 
+                  *ngIf="name.errors.required">
+                  Your name is required
+                </div>
+             </div>
+      <!-- <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small> -->
+    </div>
+
+    <div class="form-group">
+      <label>Email: </label>
+      <input [(ngModel)]="contactModel.email" type="email" class="form-control" name="email">
+    </div>
+
+    <div class="form-group">
+      <select [(ngModel)]="contactModel.messagetype" class="custom-select" name="type">
+        <option value="">What kind of message would you like to send? </option>
+        <option *ngFor="let type of types">{{type}} </option>
+      </select>
+    </div>
+
+    
+    <button class="btn btn-primary" (click)="senddata(contactForm.value)">Send message</button>
+  </form>
+
+</div>
