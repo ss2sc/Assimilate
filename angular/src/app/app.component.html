@@ -1,48 +1,87 @@
-<div class="container">
-  <h1>
-    {{ title }}
-  </h1>
+<!-- Assimilate Game Website -->
+<!-- Single Page Application -->
+<!-- Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
 
-  <!-- Display data received from the back end <br/>
-  response data = {{ responsedata | json}}
-  <br/>
-  <hr/>
-  Data binding exercise 
-  <br/>
-  {{ contactForm.value | json }}
-  <br/>
-  {{ contactModel | json }} 
-  <hr/> -->
+    <!-- External libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <!-- A grey horizontal navbar that becomes vertical on small screens -->
+    <nav class="navbar navbar-expand-lg">
+        <div class=" navbar-collapse">
+            <div class="topnav" id="myTopnav">
+                <a href="http://localhost/assimilate/assimilate.php" class="active"><b>ASSIMILATE</b></a>
+            </div>
+        </div>
+    </nav>
 
-  <form #contactForm="ngForm">
-    <div class="form-group">
-      <label>Name: </label>
-      <input required #name="ngModel" 
-             [class.is-invalid]="name.invalid"
-             [(ngModel)]="contactModel.name" type="text" class="form-control" name="name">
-             <div *ngIf="name.touched && name.errors">
-                <div class="alert alert-danger" 
-                  *ngIf="name.errors.required">
-                  Your name is required
-                </div>
-             </div>
-      <!-- <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small> -->
+    <div id = "contact"> 
+        <h1>CONTACT US</h1>
+        <h4>Want to make Assimilate better? <br> Shoot Stephen and Vivien an email if you have any comments, questions, or feedback: <br></h4>
+        <form #contactForm="ngForm">
+            <div class="form-group">
+              <label>Name: </label>
+              <input required #name="ngModel" 
+                     [class.is-invalid]="name.invalid"
+                     [(ngModel)]="contactModel.name" type="text" class="form-control" name="name">
+                     <!-- <div *ngIf="name.touched && nameField.errors">
+                        <div class="alert alert-danger" 
+                        *ngIf="name.errors.required">
+                        Name is required
+                        </div>
+                     </div>  -->
+              <!-- <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small> -->
+            </div>
+        
+            <div class="form-group">
+              <label>Email: </label>
+              <input [(ngModel)]="contactModel.email" type="email" class="form-control" name="email">
+            </div>
+        
+            <div class="form-group">
+                <label>Subject: </label>
+                <select [(ngModel)]="contactModel.messagetype" class="custom-select" name="type">
+                <option value="">What kind of message would you like to send? </option>
+                <option *ngFor="let type of types">{{type}} </option>
+                
+              </select>
+            </div>
+            <div *ngIf="contactModel.messagetype != ''"> 
+                <div class="md-form">
+                    <textarea name = "message" textarea type="text" id="form7" class="md-textarea form-control" mdbInput></textarea>
+                    <label for="form7"></label>
+                  </div>
+            </div>
+
+            <!-- <div *ngIf="messagetype.touched"> 
+              <p>yoyoyoy</p>
+            </div> -->
+
+        
+            
+            <button class="btn btn-primary" (click)="senddata(contactForm.value)">Send message</button>
+          </form>
+        
+        
     </div>
-
-    <div class="form-group">
-      <label>Email: </label>
-      <input [(ngModel)]="contactModel.email" type="email" class="form-control" name="email">
-    </div>
-
-    <div class="form-group">
-      <select [(ngModel)]="contactModel.messagetype" class="custom-select" name="type">
-        <option value="">What kind of message would you like to send? </option>
-        <option *ngFor="let type of types">{{type}} </option>
-      </select>
-    </div>
-
     
-    <button class="btn btn-primary" (click)="senddata(contactForm.value)">Send message</button>
-  </form>
+    <div id="centerscreen" class="container center-screen" style="display:none; height: 400px; width: 300px;">
+        <!-- How to play View -->
+        <div id="howtoplay" style="display:none;">
+            <h2 style="text-align: center;">How to play</h2>
+            <br>
+            <p>Click on a square in the grid. This will flip the colors of all adjacent squares.</p>
+            <p>The goal of the game is to make all the squares in the grid the same color!</p>
+        </div>
 
-</div>
+        <!-- Leaderboard View -->
+        <div id="leaderboard" style="display:none;">
+            <h2 style="text-align: center;">Leaderboard</h2>
+        </div>
+    </div>
+    <div class="bottombar" id="myBottom">
+        <a href="about.html">About</a>
+        <a href="contact.php">Contact Us</a>
+            <!-- <a href="javascript:void(0);" class="icon" onclick="bottomFunction()">&#9776;</a> -->
+    </div>
+
