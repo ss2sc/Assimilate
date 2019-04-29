@@ -162,7 +162,7 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
 
     <div class="bottombar" id="myBottom">
         <a href="about.html">About</a>
-        <a href="contact.php">Contact Us</a>
+        <a href="http://localhost:4200">Contact Us</a>
     </div>
 </body>
 </html>
