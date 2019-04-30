@@ -68,22 +68,23 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
     </div>
 
     <!-- Play page jumbotron -->
-    <div id="play" class="jumbotron" style="display:none;">
+    <div id="play" class="jumbotron" style="display:none; padding-top: 5px;">
+        <h3 id="level" style="text-align: center;">Level 1</h3>
         <h3 id="clicks" style="text-align: center;">Clicks Taken: 0</h3>
         <div style="text-align: center;"><button class="btn btn-primary" onclick="resetBoard()">Reset</button></div>
         <div class="grid">
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(0)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(1)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(2)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(3)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(1)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(2)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(3)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(4)"></div>
             </div>
             <div class="row">
                 <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(5)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(6)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(7)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(8)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(6)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(7)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(8)"></div>
                 <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(9)"></div>
             </div>
             <div class="row">
@@ -95,27 +96,27 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
             </div>
             <div class="row">
                 <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(15)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(16)"></div>
-                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(17)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(18)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(16)"></div>
+                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(17)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(18)"></div>
                 <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(19)"></div>
             </div>
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(20)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(21)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(22)"></div>
-                <div class="box" role="button" style="background-color:#000000;" onclick="changeSquares(23)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(21)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(22)"></div>
+                <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(23)"></div>
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(24)"></div>
             </div>
         </div>
         <br/><br/>
         <div class="row" style="text-align: center;">
             <div class="levelButtons" style="margin: 0 auto;">
-                <button class="levelButton" onclick="changeLevel(0)">1</button>
-                <button class="levelButton" onclick="changeLevel(1)">2</button>
-                <button class="levelButton" onclick="changeLevel(2)">3</button>
-                <button class="levelButton" onclick="changeLevel(3)">4</button>
-                <button class="levelButton" onclick="changeLevel(4)">5</button>
+                <button class="btn btn-primary" onclick="changeLevel(0)">Level 1</button>
+                <button class="btn btn-primary" onclick="changeLevel(1)">Level 2</button>
+                <button class="btn btn-primary" onclick="changeLevel(2)">Level 3</button>
+                <button class="btn btn-primary" onclick="changeLevel(3)">Level 4</button>
+                <button class="btn btn-primary" onclick="changeLevel(4)">Level 5</button>
             </div>
         </div>
     </div>
@@ -166,11 +167,11 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
         </div>
     </div>
 
-    <img src="images/x.png" id="closeButton" style="display:none;" role="button" onclick="closeCenter() , closeSubmit()">
+    <img src="images/x.png" id="closeButton" style="display:none;" role="button" onclick="closeCenter()">
 
     <div class="bottombar" id="myBottom">
         <a href="about.html">About</a>
-        <a href="http://localhost:4200">Contact Us</a>
+        <a href="http://localhost:4200/assimilate/contactus">Contact Us</a>
     </div>
 </body>
 </html>

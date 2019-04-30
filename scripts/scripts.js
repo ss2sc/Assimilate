@@ -109,42 +109,9 @@ function changeSquares(numBox) {
 function resetBoard() {
     clicks = 0;
     document.getElementById("clicks").textContent = "Clicks Taken: 0";
-    var spots = document.getElementsByClassName("box");
-    // Hard-coded reset board for now
-    // Row 1
-    spots[0].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[1].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[2].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[3].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[4].style.backgroundColor = "rgb(255, 255, 255)";
-
-    // Row 2
-    spots[5].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[6].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[7].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[8].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[9].style.backgroundColor = "rgb(0, 0, 0)";
-
-    // Row 3
-    spots[10].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[11].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[12].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[13].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[14].style.backgroundColor = "rgb(255, 255, 255)";
-
-    // Row 4
-    spots[15].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[16].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[17].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[18].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[19].style.backgroundColor = "rgb(0, 0, 0)";
-
-    // Row 5
-    spots[20].style.backgroundColor = "rgb(255, 255, 255)";
-    spots[21].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[22].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[23].style.backgroundColor = "rgb(0, 0, 0)";
-    spots[24].style.backgroundColor = "rgb(255, 255, 255)";
+    var level = document.getElementById('level').innerHTML;
+    level = level[level.length-1] - 1;
+    changeLevel(level);    
 }
 
 /* Helper function for gameplay */
@@ -164,25 +131,35 @@ function getClicks(){
     return document.getElementByName("score");
 }
 
-var xhr
-
-/* Change levels asychronously with ajax */; 
+var xhr = GetXmlHttpObject();
+xhr.open('GET', 'levels.xml', true);
+xhr.send(null);
+/* Change levels asychronously with ajax */
 function changeLevel(level) {
-    xhr = GetXmlHttpObject();
     if (xhr == null) {
         alert("Your browser does not support XMLHTTP!");
         return;
     }
+    if(xhr.status === 200) {
+        var response = xhr.responseXML;
+        var spots = document.getElementsByClassName("box");
+        var levels = response.getElementsByTagName("level");
+        for (var i = 0; i < 25; i++) {
+            console.log(levels[level].childNodes[2*i+1].firstChild.nodeValue);
+            spots[i].style.backgroundColor = levels[level].childNodes[2*i+1].firstChild.nodeValue;
+        }
+    }
 
-    xhr.open('GET', 'levels.xml', true);
+    document.getElementById('level').innerHTML = "Level " + (level + 1);
 
-    var response = xhr.responseXML;
-    var levels = response.getElementsByTagName('level');
-
-
+    loadLeaderboard(level);
 }
 
-xhr.open('GET', 'levels.xml', true);
+function loadLeaderboard(level) {
+    var tablexhr = GetXmlHttpObject();
+    tablexhr.open('GET', 'openTable.php?q='+level, true);
+    tablexhr.send(null);
+}
 
 function GetXmlHttpObject()
 {	

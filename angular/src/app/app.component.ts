@@ -27,11 +27,11 @@ export class AppComponent {
      let params = JSON.stringify(data);
 
      //this.http.get('http://localhost/cs4640s19/ngphp-get.php?str='+encodeURIComponent(params))
-     this.http.get('http://localhost/assimilate/ngphp-get.php?str='+params)
+     this.http.get('http://localhost:81/cs4640/assimilate/ngphp-get.php?str='+params)
      //this.http.post('http://localhost/cs4640s19/ngphp-post.php', data)
      .subscribe((data) => {
         console.log('Got data from backend', data);
-        this.responsedata = data;
+        this.responsedata = JSON.stringify(data);
      }, (error) => {
         console.log('Error', error);
      })
