@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<levels>
+    <level>
+        <spot0>#ffffff</spot0>
+        <spot1>#ffffff</spot1>
+        <spot2>#ffffff</spot2>
+        <spot3>#ffffff</spot3>
+        <spot4>#ffffff</spot4>
+
+        <spot5>#000000</spot5>
+        <spot6>#ffffff</spot6>
+        <spot7>#000000</spot7>
+        <spot8>#ffffff</spot8>
+        <spot9>#000000</spot9>
+
+        <spot10>#ffffff</spot10>
+        <spot11>#ffffff</spot11>
+        <spot12>#ffffff</spot12>
+        <spot13>#ffffff</spot13>
+        <spot14>#ffffff</spot14>
+
+        <spot15>#000000</spot15>
+        <spot16>#ffffff</spot16>
+        <spot17>#000000</spot17>
+        <spot18>#ffffff</spot18>
+        <spot19>#000000</spot19>
+
+        <spot20>#ffffff</spot20>
+        <spot21>#ffffff</spot21>
+        <spot22>#ffffff</spot22>
+        <spot23>#ffffff</spot23>
+        <spot24>#ffffff</spot24>
+
+        <ans>3</ans>
+    </level>
+
+    <level>
+        <spot0>#ffffff</spot0>
+        <spot1>#ffffff</spot1>
+        <spot2>#000000</spot2>
+        <spot3>#ffffff</spot3>
+        <spot4>#ffffff</spot4>
+
+        <spot5>#ffffff</spot5>
+        <spot6>#ffffff</spot6>
+        <spot7>#000000</spot7>
+        <spot8>#ffffff</spot8>
+        <spot9>#ffffff</spot9>
+
+        <spot10>#000000</spot10>
+        <spot11>#000000</spot11>
+        <spot12>#ffffff</spot12>
+        <spot13>#000000</spot13>
+        <spot14>#000000</spot14>
+
+        <spot15>#ffffff</spot15>
+        <spot16>#ffffff</spot16>
+        <spot17>#000000</spot17>
+        <spot18>#ffffff</spot18>
+        <spot19>#ffffff</spot19>
+        
+        <spot20>#ffffff</spot20>
+        <spot21>#ffffff</spot21>
+        <spot22>#000000</spot22>
+        <spot23>#ffffff</spot23>
+        <spot24>#ffffff</spot24>
+
+        <ans>5</ans>
+    </level>
+
+    <level>
+        <spot0>#000000</spot0>
+        <spot1>#ffffff</spot1>
+        <spot2>#ffffff</spot2>
+        <spot3>#ffffff</spot3>
+        <spot4>#000000</spot4>
+
+        <spot5>#ffffff</spot5>
+        <spot6>#ffffff</spot6>
+        <spot7>#000000</spot7>
+        <spot8>#ffffff</spot8>
+        <spot9>#ffffff</spot9>
+
+        <spot10>#ffffff</spot10>
+        <spot11>#ffffff</spot11>
+        <spot12>#ffffff</spot12>
+        <spot13>#ffffff</spot13>
+        <spot14>#ffffff</spot14>
+
+        <spot15>#ffffff</spot15>
+        <spot16>#ffffff</spot16>
+        <spot17>#000000</spot17>
+        <spot18>#ffffff</spot18>
+        <spot19>#ffffff</spot19>
+        
+        <spot20>#000000</spot20>
+        <spot21>#ffffff</spot21>
+        <spot22>#ffffff</spot22>
+        <spot23>#ffffff</spot23>
+        <spot24>#000000</spot24>
+
+        <ans>6</ans>
+    </level>
+
+    <level>
+        <spot0>#000000</spot0>
+        <spot1>#000000</spot1>
+        <spot2>#ffffff</spot2>
+        <spot3>#000000</spot3>
+        <spot4>#000000</spot4>
+
+        <spot5>#000000</spot5>
+        <spot6>#000000</spot6>
+        <spot7>#000000</spot7>
+        <spot8>#000000</spot8>
+        <spot9>#000000</spot9>
+
+        <spot10>#000000</spot10>
+        <spot11>#ffffff</spot11>
+        <spot12>#000000</spot12>
+        <spot13>#ffffff</spot13>
+        <spot14>#000000</spot14>
+
+        <spot15>#000000</spot15>
+        <spot16>#000000</spot16>
+        <spot17>#000000</spot17>
+        <spot18>#000000</spot18>
+        <spot19>#000000</spot19>
+        
+        <spot20>#000000</spot20>
+        <spot21>#000000</spot21>
+        <spot22>#ffffff</spot22>
+        <spot23>#000000</spot23>
+        <spot24>#000000</spot24>
+
+        <ans>8</ans>
+    </level>
+
+    <level>
+        <spot0>#ffffff</spot0>
+        <spot1>#ffffff</spot1>
+        <spot2>#ffffff</spot2>
+        <spot3>#ffffff</spot3>
+        <spot4>#ffffff</spot4>
+
+        <spot5>#ffffff</spot5>
+        <spot6>#ffffff</spot6>
+        <spot7>#ffffff</spot7>
+        <spot8>#ffffff</spot8>
+        <spot9>#ffffff</spot9>
+
+        <spot10>#ffffff</spot10>
+        <spot11>#ffffff</spot11>
+        <spot12>#000000</spot12>
+        <spot13>#ffffff</spot13>
+        <spot14>#ffffff</spot14>
+
+        <spot15>#ffffff</spot15>
+        <spot16>#ffffff</spot16>
+        <spot17>#ffffff</spot17>
+        <spot18>#ffffff</spot18>
+        <spot19>#ffffff</spot19>
+        
+        <spot20>#ffffff</spot20>
+        <spot21>#ffffff</spot21>
+        <spot22>#ffffff</spot22>
+        <spot23>#ffffff</spot23>
+        <spot24>#ffffff</spot24>
+
+        <ans>8</ans>
+    </level>
+</levels>

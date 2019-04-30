@@ -164,46 +164,35 @@ function getClicks(){
     return document.getElementByName("score");
 }
 
-/* Validating form data for Contact Page */; 
-/*function validateForm(){ 
-    var name = document.forms["contactForm"]["name"].value; 
-    var email = document.forms["contactForm"]["mail"].value; 
-    var comments = document.forms["contactForm"]["comments"].value; 
-    var validFormat = true;
-    if (name == ''){    // check if appropriate data are entered
-        document.getElementById("name").focus(); 
-        document.getElementById("name-note").innerHTML = "Please enter a name"; 
-        validFormat = false; 
+var xhr
+
+/* Change levels asychronously with ajax */; 
+function changeLevel(level) {
+    xhr = GetXmlHttpObject();
+    if (xhr == null) {
+        alert("Your browser does not support XMLHTTP!");
+        return;
     }
-    else {
-        document.getElementById("name-note").innerHTML = ""; 
-    }
-    if (email === ''){    // check if appropriate data are entered
-        //alert("email");
-        if(validFormat) // Have it focus on the first invalid textfield
-            document.getElementById("mail").focus(); 
-        document.getElementById("mail-note").innerHTML = "Please enter your email"; 
-        validFormat = false; 
-    } 
-    else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))){
-        //alert("email"); 
-        if(validFormat) // Have it focus on the first invalid textfield
-            document.getElementById("mail").focus(); 
-        document.getElementById("mail-note").innerHTML = "Please enter a valid email that contains @, doesn't have double dots and doesn't start with \".\""; 
-        validFormat = false; 
-    }
-    else {
-        document.getElementById("mail-note").innerHTML = "";
-    }
-    if (comments === ''){    // check if appropriate data are entered 
-        //alert("comments");
-        if(validFormat) // Have it focus on the first invalid textfield
-            document.getElementById("comments").focus(); 
-        document.getElementById("comments-note").innerHTML = "Please enter a comment/question"; 
-        validFormat = false; 
-    }
-    else {
-        document.getElementById("comments-note").innerHTML = "";
-    }
-    return validFormat; 
-}*/ 
+
+    xhr.open('GET', 'levels.xml', true);
+
+    var response = xhr.responseXML;
+    var levels = response.getElementsByTagName('level');
+
+
+}
+
+xhr.open('GET', 'levels.xml', true);
+
+function GetXmlHttpObject()
+{	
+   if (window.XMLHttpRequest)
+   {  // code for IE7+, Firefox, Chrome, Opera, Safari
+      return new XMLHttpRequest();
+   }
+   if (window.ActiveXObject)
+   { // code for IE6, IE5
+     return new ActiveXObject ("Microsoft.XMLHTTP");
+   }
+   return null;
+}

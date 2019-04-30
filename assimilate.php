@@ -1,11 +1,11 @@
 <!-- Assimilate Game Website -->
 <!-- Single Page Application -->
 <!-- Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) -->
-<!-- received help from Emily Zou (ez6ah) for formatting table to read from database-->
 <?php
 require 'connect.php';
 $db_found = mysqli_select_db( $db_handle, $db_name );
 
+// $action = "list_users";        // default action
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
             <div class="row">
                 <!-- Left side of jumbotron -->
                 <div class="col-md-6 my-auto">
-                    <img src="images/playthrough1.gif">
+                    <img src="images/placeholder.png">
                 </div>
 
                 <!-- Right side of jumbotron -->
@@ -70,7 +70,7 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
     <!-- Play page jumbotron -->
     <div id="play" class="jumbotron" style="display:none;">
         <h3 id="clicks" style="text-align: center;">Clicks Taken: 0</h3>
-        <div style="text-align: center;"><button class="btn btn-primary" onclick="resetBoard()" style="text-align: center;">Reset</button></div>
+        <div style="text-align: center;"><button class="btn btn-primary" onclick="resetBoard()">Reset</button></div>
         <div class="grid">
             <div class="row">
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(0)"></div>
@@ -108,6 +108,16 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
                 <div class="box" role="button" style="background-color:#ffffff;" onclick="changeSquares(24)"></div>
             </div>
         </div>
+        <br/><br/>
+        <div class="row" style="text-align: center;">
+            <div class="levelButtons" style="margin: 0 auto;">
+                <button class="levelButton" onclick="changeLevel(0)">1</button>
+                <button class="levelButton" onclick="changeLevel(1)">2</button>
+                <button class="levelButton" onclick="changeLevel(2)">3</button>
+                <button class="levelButton" onclick="changeLevel(3)">4</button>
+                <button class="levelButton" onclick="changeLevel(4)">5</button>
+            </div>
+        </div>
     </div>
 
     <div id="centerscreen" class="container center-screen" style="display:none; height: 700px; width: 500px;">
@@ -142,14 +152,12 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
         </div>
     </div>
     
-    <!-- Score submission -->
     <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
         <div id = submitscreen style="display:none;">
             <h3 style="text-align: center;">Add your name to Assimilate's leaderboard!<br></h3>
                 <form action="addScore.php" method="get">
                     <br>
                     <dl>
-                        <!-- auto fill name with cookies -->
                         <dt><dd><input id="inputname" type="text" name="name" value="<?php if(isSet($_COOKIE['name'])) echo $_COOKIE['name'];?>"/></dd>
                         <dd><input id="score" type="hidden" name="score"/></dd>
                     </dl>
@@ -162,7 +170,7 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
 
     <div class="bottombar" id="myBottom">
         <a href="about.html">About</a>
-        <a href="contact.php">Contact Us</a>
+        <a href="http://localhost:4200">Contact Us</a>
     </div>
 </body>
 </html>
