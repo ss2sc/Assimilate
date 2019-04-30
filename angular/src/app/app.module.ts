@@ -1,3 +1,5 @@
+// Stephen Shiao (ss2sc) and Vivien Chen (vc2cw)
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms";

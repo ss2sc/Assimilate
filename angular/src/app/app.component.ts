@@ -1,3 +1,4 @@
+// Stephen Shiao (ss2sc) and Vivien Chen (vc2cw)
 import { Component } from '@angular/core';
 import { Contact } from './contact';
 
