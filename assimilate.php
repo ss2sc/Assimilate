@@ -31,6 +31,7 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
     <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 <body>
+    <div id="insert" style="display: none;"></div>
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
     <nav class="navbar navbar-expand-lg">
         <div class=" navbar-collapse">
@@ -132,20 +133,21 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
         <!-- Leaderboard View -->
         <div id="leaderboard" style="display:none;">
             <h2 style="text-align: center;">Leaderboard</h2>
-            <table class="table table-striped">
-                <tr>
+            <table id="scoreboard" class="table table-striped" style="color: white;">
+            <?php
+                echo '<tr>
                     <th>Rank</th>
                     <th>Name</th>
                     <th>Score</th>
-                </tr>
-            <!-- PHP show leaderboard data from database-->
-            <?php
+                </tr>';
+            
                 $rank = 1;
                 foreach ($results as $result){
-                    echo "<tr> <td>{$rank}</td>
+                    echo "<tr> 
+                        <td>{$rank}</td>
                         <td>{$result['User']}</td>
-                        <td>{$result['Score']}
-                        </td><tr>";
+                        <td>{$result['Score']}</td>
+                        <tr>";
                     $rank++;
                 }
             ?>
@@ -156,14 +158,15 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
     <div id="centersubmit" class="container center-submit" style="display:none; height: 300px; width: 500px;">
         <div id = submitscreen style="display:none;">
             <h3 style="text-align: center;">Add your name to Assimilate's leaderboard!<br></h3>
-                <form action="addScore.php" method="get">
-                    <br>
-                    <dl>
-                        <dt><dd><input id="inputname" type="text" name="name" value="<?php if(isSet($_COOKIE['name'])) echo $_COOKIE['name'];?>"/></dd>
-                        <dd><input id="score" type="hidden" name="score"/></dd>
-                    </dl>
-                <input id="inputname" name="submit" type="submit">
-        </form>
+            <form action="addScore.php" method="get">
+                <br>
+                <dl>
+                    <dt><dd><input id="inputname" type="text" name="name" value="<?php if(isSet($_COOKIE['name'])) echo $_COOKIE['name'];?>"/></dd>
+                    <dd><input id="score" type="hidden" name="score"/></dd>
+                    <dd><input id="currlevel" type="hidden" name="currlevel" value="0"/></dd>
+                </dl>
+                    <input id="inputname" name="submit" type="submit">
+            </form>
         </div>
     </div>
 

@@ -1,4 +1,5 @@
 /* Made by Stephen Shiao (ss2sc) and Vivien Chen (vc2cw) */
+
 function openGame() {
     document.getElementById("home").style.display = "none";
     document.getElementById("play").style.display = "block";
@@ -133,9 +134,10 @@ function getClicks(){
 
 var xhr = GetXmlHttpObject();
 xhr.open('GET', 'levels.xml', true);
-xhr.send(null);
+xhr.send();
 /* Change levels asychronously with ajax */
 function changeLevel(level) {
+    document.getElementById('currlevel').value = level;
     if (xhr == null) {
         alert("Your browser does not support XMLHTTP!");
         return;
@@ -145,20 +147,27 @@ function changeLevel(level) {
         var spots = document.getElementsByClassName("box");
         var levels = response.getElementsByTagName("level");
         for (var i = 0; i < 25; i++) {
-            console.log(levels[level].childNodes[2*i+1].firstChild.nodeValue);
             spots[i].style.backgroundColor = levels[level].childNodes[2*i+1].firstChild.nodeValue;
         }
     }
 
+    document.getElementById('clicks').innerHTML = "Clicks Taken: 0";
     document.getElementById('level').innerHTML = "Level " + (level + 1);
 
     loadLeaderboard(level);
 }
 
+var tablexhr;
+tablexhr = GetXmlHttpObject();
+tablexhr.onreadystatechange = function() {
+    if (tablexhr.readyState == 4 && tablexhr.status == 200) {
+        document.getElementById('scoreboard').innerHTML = tablexhr.responseText;
+    }
+}
+
 function loadLeaderboard(level) {
-    var tablexhr = GetXmlHttpObject();
-    tablexhr.open('GET', 'openTable.php?q='+level, true);
-    tablexhr.send(null);
+    tablexhr.open('GET', 'connect.php?level='+level, true);
+    tablexhr.send();
 }
 
 function GetXmlHttpObject()
