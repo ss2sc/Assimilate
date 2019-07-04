@@ -52,7 +52,7 @@ $db_found = mysqli_select_db( $db_handle, $db_name );
             <div class="row">
                 <!-- Left side of jumbotron -->
                 <div class="col-md-6 my-auto">
-                    <img src="images/placeholder.png">
+                    <img src="images/playthrough1.gif">
                 </div>
 
                 <!-- Right side of jumbotron -->

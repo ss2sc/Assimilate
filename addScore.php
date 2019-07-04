@@ -23,7 +23,7 @@
     }
 
     if (isSet($_GET['submit'])){
-        if (strlen($_GET['name']) > 0 && strlen($_GET['name']) < 11){
+        if (strlen($_GET['name']) > 0 && strlen($_GET['name']) < 13){
             $name = $_GET['name'];
             $score = $_GET['score'];
             $level = $_GET['currlevel'];
